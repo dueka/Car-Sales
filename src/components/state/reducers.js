@@ -36,8 +36,13 @@ export function addReducer(state = initialState, action) {
         }
       };
     case types.REMOVE:
-      return count - 1;
+      return {
+        ...state,
+        features: state.car.features.filter(
+          feature => feature.id !== action.payload.id
+        )
+      };
     default:
-      return count;
+      return state;
   }
 }
