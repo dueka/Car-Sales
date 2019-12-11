@@ -28,9 +28,13 @@ const initialState = {
 export function addReducer(state = initialState, action) {
   switch (action.type) {
     case types.ADD:
-      return features.map(item => {
-        return item.id === action.payload.id;
-      });
+      return {
+        ...state,
+        car: {
+          ...state.car,
+          features: state.car.features.concat(action.payload)
+        }
+      };
     case types.REMOVE:
       return count - 1;
     default:
