@@ -25,7 +25,7 @@ const initialState = {
 //   { id: 4, name: "Rear spoiler", price: 250 }
 // ];
 
-export function addReducer(state = initialState, action) {
+export function reducer(state = initialState, action) {
   switch (action.type) {
     case types.ADD:
       return {
@@ -38,9 +38,12 @@ export function addReducer(state = initialState, action) {
     case types.REMOVE:
       return {
         ...state,
-        features: state.car.features.filter(
-          feature => feature.id !== action.payload.id
-        )
+        car: {
+          ...state.car,
+          features: state.car.features.filter(
+            feature => feature.id !== action.payload.id
+          )
+        }
       };
     default:
       return state;
