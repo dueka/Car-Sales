@@ -6,7 +6,7 @@ import AdditionalFeatures from "./components/AdditionalFeatures";
 import Total from "./components/Total";
 import { combineReducers, createStore } from "redux";
 import { addReducer } from "../src/components/state/reducers";
-import { from } from "rxjs";
+import { Provider } from "react-redux";
 
 const monsterReducer = combineReducers({
   add: addReducer
@@ -27,16 +27,18 @@ const App = () => {
   };
 
   return (
-    <div className="boxes">
-      <div className="box">
-        <Header car={state.car} />
-        <AddedFeatures car={state.car} />
+    <Provider store={store}>
+      <div className="boxes">
+        <div className="box">
+          <Header />
+          <AddedFeatures />
+        </div>
+        <div className="box">
+          <AdditionalFeatures />
+          <Total />
+        </div>
       </div>
-      <div className="box">
-        <AdditionalFeatures additionalFeatures={state.additionalFeatures} />
-        <Total car={state.car} additionalPrice={state.additionalPrice} />
-      </div>
-    </div>
+    </Provider>
   );
 };
 
