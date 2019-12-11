@@ -1,23 +1,18 @@
 import React from "react";
 import AdditionalFeature from "./AdditionalFeature";
-import { connect } from "react-redux";
-import * as creators from "../components/state/actionCreators";
-
+import data from "./data/data";
 const AdditionalFeatures = props => {
   return (
     <div className="content">
       <h4>Additional Features</h4>
-      {props.state.store.length ? (
-        <ol type="1">
-          {props.state.store.map(item => (
-            <AdditionalFeature key={item.id} feature={item} />
-          ))}
-        </ol>
-      ) : (
-        <p>Nice looking car!</p>
-      )}
+
+      <ol type="1">
+        {data.map(item => (
+          <AdditionalFeature key={item.id} feature={item} />
+        ))}
+      </ol>
     </div>
   );
 };
 
-export default connect(state => state, creators)(AdditionalFeatures);
+export default AdditionalFeatures;

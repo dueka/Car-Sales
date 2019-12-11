@@ -1,21 +1,16 @@
 import React from "react";
 import AddedFeature from "./AddedFeature";
-import * as creators from "../components/state/actionCreators";
-import { connect } from "react-redux";
+import data from "./data/data";
 
-const AddedFeatures = props => {
+const AddedFeatures = () => {
   return (
     <div className="content">
       <h6>Added features:</h6>
-      {props.state.car.features.length ? (
-        <ol type="1">
-          {props.state.car.features.map(item => (
-            <AddedFeature key={item.id} feature={item} />
-          ))}
-        </ol>
-      ) : (
-        <p>You can purchase items from the store.</p>
-      )}
+      <ol type="1">
+        {data.map(item => (
+          <AddedFeature key={item.id} feature={item} />
+        ))}
+      </ol>
     </div>
   );
 };
@@ -25,4 +20,4 @@ const AddedFeatures = props => {
 //     remove: state.remove
 //   };
 // }
-export default connect(state => state, creators)(AddedFeatures);
+export default AddedFeatures;

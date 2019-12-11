@@ -1,15 +1,12 @@
 import React from "react";
-import * as creators from "../components/state/actionCreators";
+import { remove } from "../components/state/actionCreators";
 import { connect } from "react-redux";
 
 const AddedFeature = props => {
   return (
     <li>
       {/* Add an onClick to run a function to remove a feature */}
-      <button
-        className="button"
-        onClick={() => props.removeFeature(props.feature)}
-      >
+      <button className="button" onClick={() => props.remove(props.feature.id)}>
         X
       </button>
       {props.feature.name}
@@ -17,4 +14,10 @@ const AddedFeature = props => {
   );
 };
 
-export default connect(state => state, creators)(AddedFeature);
+function mapStateToProps(state) {
+  return {
+    reducer: state.reducer
+  };
+}
+
+export default connect(mapStateToProps, { remove })(AddedFeature);

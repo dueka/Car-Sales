@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import AddedFeatures from "./components/AddedFeatures";
 import AdditionalFeatures from "./components/AdditionalFeatures";
 import Total from "./components/Total";
+
 import { combineReducers, createStore } from "redux";
 import * as reducers from "../src/components/state/reducers";
 import { Provider } from "react-redux";
