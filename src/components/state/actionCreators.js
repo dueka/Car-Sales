@@ -1,6 +1,6 @@
 import * as types from "./actionTypes";
 
-export function add() {
+export function add(item) {
   return {
     types: types.ADD,
     payload: {

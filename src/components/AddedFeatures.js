@@ -1,6 +1,8 @@
-import React from 'react';
+import React from "react";
 
-import AddedFeature from './AddedFeature';
+import AddedFeature from "./AddedFeature";
+import { remove } from "../components/state/actionCreators";
+import { connect } from "react-redux";
 
 const AddedFeatures = props => {
   return (
@@ -19,4 +21,10 @@ const AddedFeatures = props => {
   );
 };
 
-export default AddedFeatures;
+function mapStateToProps(state) {
+  return {
+    remove: state.remove
+  };
+}
+
+export default connect(mapStateToProps, { remove })(AddedFeatures);
