@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Total = props => {
   return (
@@ -7,5 +7,4 @@ const Total = props => {
     </div>
   );
 };
-
 export default Total;

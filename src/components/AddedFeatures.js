@@ -1,22 +1,23 @@
-import React from 'react';
+import React from "react";
+import AddedFeature from "./AddedFeature";
+import data from "./data/data";
 
-import AddedFeature from './AddedFeature';
-
-const AddedFeatures = props => {
+const AddedFeatures = () => {
   return (
     <div className="content">
       <h6>Added features:</h6>
-      {props.car.features.length ? (
-        <ol type="1">
-          {props.car.features.map(item => (
-            <AddedFeature key={item.id} feature={item} />
-          ))}
-        </ol>
-      ) : (
-        <p>You can purchase items from the store.</p>
-      )}
+      <ol type="1">
+        {data.map(item => (
+          <AddedFeature key={item.id} feature={item} />
+        ))}
+      </ol>
     </div>
   );
 };
 
+// function mapStateToProps(state) {
+//   return {
+//     remove: state.remove
+//   };
+// }
 export default AddedFeatures;
